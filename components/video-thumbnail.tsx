@@ -10,21 +10,27 @@ import {
 import React from "react";
 import responsiveSize from "../utils/responsive-size";
 import { globalStyles } from "../styles/global-styles.config";
+import { useNavigation } from "@react-navigation/native";
 
 export default function VideoThumbnail({
   image,
   title,
+  video,
 }: {
   image: any;
   title: any;
+  video: string;
 }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
         <View style={styles.description}>
           <Image source={title} style={styles.title} />
           <TouchableOpacity
-            onPress={() => alert("hello")}
+            onPress={() =>
+              navigation.navigate("Video" as never, { src: video } as never)
+            }
             style={styles.button}
           >
             <Text style={styles.buttonText}>Watch Now</Text>

@@ -31,7 +31,7 @@ const VideoPlayer = ({ route }) => {
         style={styles.back}
         onPress={() => {
           changeScreenOrientation("PORTRAIT_UP");
-          navigation.navigate("Curations" as never);
+          navigation.goBack();
         }}
       >
         <Ionicons name="arrow-back" size={24} color="white" />

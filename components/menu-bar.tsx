@@ -58,7 +58,6 @@ const MenuBar: React.FC<MenuBarProps> = ({ home }) => {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Search" as never)}
           style={{
             ...styles.nav,
             backgroundColor:
