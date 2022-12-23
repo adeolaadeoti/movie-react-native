@@ -37,6 +37,7 @@ const data = [
 
 const Curations = () => {
   const [inViewVideoId, setInViewVideoId] = React.useState(0);
+  const [isDraging, setIsDraging] = React.useState(false);
 
   return (
     <View style={{ width: "100%", height: Dimensions.get("window").height }}>
@@ -47,7 +48,11 @@ const Curations = () => {
         scrollEventThrottle={500}
         data={data}
         renderItem={({ item }) => (
-          <CurationThumbnail {...item} inViewVideoId={inViewVideoId} />
+          <CurationThumbnail
+            {...item}
+            inViewVideoId={inViewVideoId}
+            isDraging={isDraging}
+          />
         )}
         keyExtractor={(item) => String(item.id)}
         onScroll={(event) => {
@@ -55,6 +60,12 @@ const Curations = () => {
           const viewSize = Dimensions.get("window");
           const pageNum = Math.floor(contentOffset.y / viewSize.height);
           setInViewVideoId(pageNum);
+        }}
+        onScrollBeginDrag={() => {
+          setIsDraging(true);
+        }}
+        onScrollEndDrag={() => {
+          setIsDraging(false);
         }}
       />
       <MenuBar />

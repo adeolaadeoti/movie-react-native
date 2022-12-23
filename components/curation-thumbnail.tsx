@@ -13,11 +13,17 @@ import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { Video, ResizeMode } from "expo-av";
 import { useNavigation } from "@react-navigation/native";
 
-const CurationThumbnail = ({ id, title, image, video, inViewVideoId }) => {
+const CurationThumbnail = ({
+  id,
+  title,
+  image,
+  video,
+  inViewVideoId,
+  isDraging,
+}) => {
   const [isLiked, setIsLiked] = React.useState(false);
   const [isAddedToList, setIsAddedToList] = React.useState(false);
   const [shouldPlay, setShouldPlay] = React.useState(false);
-
   const navigation = useNavigation();
 
   React.useEffect(() => {
@@ -42,7 +48,7 @@ const CurationThumbnail = ({ id, title, image, video, inViewVideoId }) => {
         isLooping
         shouldPlay={shouldPlay}
       />
-      <View style={styles.description}>
+      <View style={[styles.description, isDraging && { opacity: 0.5 }]}>
         <View style={styles.left}>
           <Image source={title} style={styles.title} />
         </View>
