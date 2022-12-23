@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/home";
 import { useFonts } from "expo-font";
 import Curations from "./screens/curations";
+import VideoPlayer from "./screens/video-player";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ export default function App() {
         <Stack.Screen
           name="Curations"
           component={Curations}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Video"
+          component={VideoPlayer}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
+import { Dimensions, FlatList, View } from "react-native";
 import React from "react";
 import CurationThumbnail from "../components/curation-thumbnail";
 import MenuBar from "../components/menu-bar";
@@ -37,14 +37,14 @@ const data = [
 
 const Curations = () => {
   const [inViewVideoId, setInViewVideoId] = React.useState(0);
+
   return (
-    <View>
+    <View style={{ width: "100%", height: Dimensions.get("window").height }}>
       <StatusBar style="light" />
       <FlatList
         pagingEnabled
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={500}
-        contentContainerStyle={styles.thumbnails}
         data={data}
         renderItem={({ item }) => (
           <CurationThumbnail {...item} inViewVideoId={inViewVideoId} />
@@ -63,7 +63,3 @@ const Curations = () => {
 };
 
 export default Curations;
-
-const styles = StyleSheet.create({
-  thumbnails: {},
-});

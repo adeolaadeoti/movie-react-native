@@ -11,13 +11,21 @@ import { globalStyles } from "../styles/global-styles.config";
 import responsiveSize from "../utils/responsive-size";
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { Video, ResizeMode } from "expo-av";
+import { useNavigation } from "@react-navigation/native";
 
 const CurationThumbnail = ({ id, title, image, video, inViewVideoId }) => {
   const [isLiked, setIsLiked] = React.useState(false);
   const [isAddedToList, setIsAddedToList] = React.useState(false);
-  const shouldPlay = inViewVideoId === id;
+  const [shouldPlay, setShouldPlay] = React.useState(inViewVideoId === id);
+
+  const navigation = useNavigation();
+
+  React.useEffect(() => {
+    setShouldPlay(inViewVideoId === id);
+  }, []);
+
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <Video
         style={styles.video}
         usePoster
@@ -56,7 +64,13 @@ const CurationThumbnail = ({ id, title, image, video, inViewVideoId }) => {
             )}
             <Text style={styles.text}>My list</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ alignItems: "center" }}>
+          <TouchableOpacity
+            style={{ alignItems: "center" }}
+            onPress={() => {
+              setShouldPlay(false);
+              navigation.navigate("Video" as never, { src: video } as never);
+            }}
+          >
             <Entypo name="controller-play" size={24} color="white" />
             <Text style={styles.text}>Play</Text>
           </TouchableOpacity>
