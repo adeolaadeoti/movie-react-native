@@ -29,7 +29,11 @@ const VideoPlayer = ({ route }) => {
   }
 
   React.useEffect(() => {
-    changeScreenOrientation("LANDSCAPE");
+    const timeout = setTimeout(() => {
+      changeScreenOrientation("LANDSCAPE_RIGHT");
+    }, 1000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   React.useEffect(() => {

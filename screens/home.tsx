@@ -9,6 +9,7 @@ import {
   ScrollView,
   Dimensions,
   FlatList,
+  Platform,
 } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
@@ -166,9 +167,12 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: "cover",
+    width: "100%",
+    height: "100%",
   },
   container: {
     flex: 1,
+    paddingTop: Platform.OS === "android" && responsiveSize(40),
   },
   top: {
     marginTop: responsiveSize(15),
