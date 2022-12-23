@@ -41,3 +41,8 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// To-DO:
+// 1. fade out the description on scroll
+// 2. animate title
+// 3. animate home screen
