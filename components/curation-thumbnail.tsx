@@ -16,13 +16,17 @@ import { useNavigation } from "@react-navigation/native";
 const CurationThumbnail = ({ id, title, image, video, inViewVideoId }) => {
   const [isLiked, setIsLiked] = React.useState(false);
   const [isAddedToList, setIsAddedToList] = React.useState(false);
-  const [shouldPlay, setShouldPlay] = React.useState(inViewVideoId === id);
+  const [shouldPlay, setShouldPlay] = React.useState(false);
 
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    setShouldPlay(inViewVideoId === id);
-  }, []);
+    if (inViewVideoId === id) {
+      setShouldPlay(true);
+    } else {
+      setShouldPlay(false);
+    }
+  }, [inViewVideoId]);
 
   return (
     <View>
