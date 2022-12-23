@@ -21,11 +21,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Home"
           component={Home}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Curations"
           component={Curations}
