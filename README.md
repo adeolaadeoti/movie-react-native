@@ -7,9 +7,8 @@
   <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
   </p>
 
-<!-- <video src="https://res.cloudinary.com/adeolaadeoti/video/upload/v1671840946/IMG_1906_gkpzoe.mov" controls></video> -->
-
-[video](https://res.cloudinary.com/adeolaadeoti/video/upload/v1671840946/IMG_1906_gkpzoe.mov)
+![app screenshot](https://res.cloudinary.com/adeolaadeoti/image/upload/v1671843168/ezgif.com-gif-maker_f1ap4p.gif)
+[video link](https://res.cloudinary.com/adeolaadeoti/video/upload/v1671842681/IMG_1906_gkpzoe_1_tnk2a2.mp4)
 
 These instructions should get you set up ready to work on the project 🙌
 
